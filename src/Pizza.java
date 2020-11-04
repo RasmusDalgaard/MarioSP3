@@ -1,10 +1,10 @@
 public class Pizza {
     int id;
-    private final double price;
-    private final String title;
-    private final String topping;
+    private int price;
+    private String title;
+    private String topping;
 
-    public Pizza(int id, double price, String title, String topping) {
+    public Pizza(int id, int price, String title, String topping) {
         this.id = id;
         this.price = price;
         this.title = title;
@@ -15,7 +15,7 @@ public class Pizza {
         return id;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
