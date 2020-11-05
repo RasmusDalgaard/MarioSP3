@@ -1,3 +1,3 @@
 public interface IMenu {
-    public void showMenu();
+    public void showMainMenu();
 }
