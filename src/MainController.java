@@ -11,30 +11,25 @@ public class MainController {
     int choice = 0;
 
     public void runProgram() {
-        menu.showMainMenu();
         while (choice != 9) {
+            menu.showMainMenu();
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
                     ps.showPizzaMenu();
+                    System.out.println("\n");
                     break;
                 case 2:
                     os.createOrder();
                     break;
                 case 3:
                     os.showActiveOrders();
-                    break;
-                case 9:
-                    exit();
+                    System.out.println("\n");
                     break;
                 default:
-                    menu.showMainMenu();
+                    choice = 9;
                     break;
             }
         }
-    }
-
-    private void exit() {
-        choice = 9;
     }
 }

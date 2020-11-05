@@ -10,10 +10,6 @@ public class Menu implements IMenu {
         System.out.println("9) Exit");
     }
 
-    public void showSubMenu() {
-        System.out.println("\n4) Go Back");
-    }
-
     public int showOrderInstruction() {
         int retVal = 0;
         System.out.println("\nEnter pizza ID");
