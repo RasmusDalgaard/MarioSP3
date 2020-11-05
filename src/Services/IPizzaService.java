@@ -1,3 +1,7 @@
+package Services;
+
+import Domain.Pizza;
+
 import java.util.List;
 
 public interface IPizzaService {

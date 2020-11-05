@@ -1,3 +1,8 @@
+package Services;
+
+import Domain.Pizza;
+import Services.IPizzaService;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -5,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PizzaService implements IPizzaService  {
+public class PizzaService implements IPizzaService {
     public List<Pizza> getAllPizzas  () {
         List<Pizza> pizzas = new ArrayList<>();
         File file = new File("resources/pizzas.txt");

@@ -1,3 +1,5 @@
+package Domain;
+
 public class Pizza {
     int id;
     private int price;
