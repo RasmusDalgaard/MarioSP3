@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PizzaService implements IPizzaService {
-    public List<Pizza> getAllPizzas() {
+public class PizzaService implements IPizzaService  {
+    public List<Pizza> getAllPizzas  () {
         List<Pizza> pizzas = new ArrayList<>();
         File file = new File("resources/pizzas.txt");
         try {

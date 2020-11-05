@@ -17,12 +17,12 @@ public class MainController {
             switch (choice) {
                 case 1:
                     ps.showPizzaMenu();
-                    //menu.showOrderInstruction();
-                    menu.showSubMenu();
                     break;
                 case 2:
                     os.createOrder();
-                    menu.showSubMenu();
+                    break;
+                case 3:
+                    os.showActiveOrders();
                     break;
                 case 9:
                     exit();

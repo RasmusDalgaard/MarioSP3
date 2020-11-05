@@ -10,7 +10,7 @@ public class Order {
     List<Pizza> pizzas;
     String status;
 
-    public Order() {
+    public Order(   ) {
         this.orderId = counter;
         this.timeStamp = LocalDateTime.now();
         this.pizzas = new ArrayList<>();
