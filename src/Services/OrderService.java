@@ -13,39 +13,31 @@ import java.util.Scanner;
 
 public class OrderService implements IOrderService {
     List<Pizza> pizzas = new ArrayList<>();
-    List<Order> orders = new ArrayList<>();
+    Order order;
     Scanner sc = new Scanner(System.in);
     Menu menu = new Menu();
     IPizzaService ps = new PizzaService();
 
     public void createOrder() {
-        Order order = new Order();
+        order = new Order();
         IMenu iMenu = new Menu();
-        int choice = 0;
         int pizzaId = 0;
+        int phoneNr = 0;
+        phoneNr = iMenu.addPhoneNrToOrder();
+        order.setPhoneNr(phoneNr);
         List<Pizza> allPizzas = ps.getAllPizzas();
         while (pizzaId != 99) {
             pizzaId = iMenu.addPizzaToOrder();
-            Pizza pizza = null;
-            pizza = allPizzas.get(pizzaId);
-            allPizzas.add(pizza);
-            orders.add(order);
-            if(pizzaId != 99) {
-                pizzaId = choice;
+            if (pizzaId != 99) {
+                Pizza pizza = null;
+                pizza = ps.getPizzaById(pizzaId);
+                order.getPizzas().add(pizza);
             }
         }
     }
 
-
     public void showActiveOrders() {
-        for (Order orders : orders) {
-            System.out.println(orders);
-        }
+        System.out.println(order);
     }
 
-    public Pizza getPizzaFromId(int id) {
-
-        return pizzas.get(id);
-
-    }
 }

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PizzaService implements IPizzaService {
-    public List<Pizza> getAllPizzas  () {
+    public List<Pizza> getAllPizzas() {
         List<Pizza> pizzas = new ArrayList<>();
         File file = new File("resources/pizzas.txt");
         try {
@@ -33,5 +33,14 @@ public class PizzaService implements IPizzaService {
         for (Pizza p : getAllPizzas()) {
             System.out.println(p);
         }
+    }
+
+    public Pizza getPizzaById(int id) {
+        for (Pizza p : getAllPizzas()) {
+            if (p.getId() == id) {
+                return p;
+            }
+        }
+        return null;
     }
 }

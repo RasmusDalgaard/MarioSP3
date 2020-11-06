@@ -21,4 +21,11 @@ public class Menu implements IMenu {
         System.out.println("99) Confirm order");
         return retVal;
     }
+
+    public int addPhoneNrToOrder() {
+        int phoneNr = 0;
+        System.out.println("Enter phoneNr: ");
+        phoneNr = sc.nextInt();
+        return phoneNr;
+    }
 }

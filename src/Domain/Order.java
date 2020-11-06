@@ -62,5 +62,16 @@ public class Order {
         }
         return price;
     }
-    
+
+    @Override
+    public String toString() {
+        String pizzaProperties = "";
+        for (Pizza p : pizzas) {
+            pizzaProperties += p.getTitle() + "\t" + p.getPrice() + ",-" + "\n";
+        }
+        return pizzaProperties +
+                "Total price: " + getPrice() + ",-" + "\n" +
+                "Phone number: " + phoneNr + "\n" +
+                "Estimated delivery: " + timeStamp;
+    }
 }
