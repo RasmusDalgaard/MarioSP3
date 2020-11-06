@@ -16,9 +16,8 @@ public class Menu implements IMenu {
 
     public int addPizzaToOrder() {
         int retVal = 0;
-        System.out.println("\nEnter pizza ID");
+        System.out.println("\nEnter pizza ID (99 to exit)");
         retVal = sc.nextInt();
-        System.out.println("99) Confirm order");
         return retVal;
     }
 

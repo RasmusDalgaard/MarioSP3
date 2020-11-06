@@ -2,25 +2,35 @@ package Domain;
 
 import Domain.Pizza;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Order {
     static int counter = 0;
     int orderId;
     int phoneNr;
-    LocalDateTime timeStamp;
+    String timeStamp;
     List<Pizza> pizzas;
     String status;
+    DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+    Calendar cal = Calendar.getInstance();
+
 
     public Order() {
         this.orderId = counter;
-        this.timeStamp = LocalDateTime.now();
+        this.timeStamp = dateFormat.format(getTime());
         this.pizzas = new ArrayList<>();
         this.status = "Created";
-
         counter++;
+    }
+
+    private Date getTime() {
+        cal.add(Calendar.MINUTE, 10);
+        return cal.getTime();
     }
 
     public int getOrderId() {
@@ -29,10 +39,6 @@ public class Order {
 
     public int getPhoneNr() {
         return phoneNr;
-    }
-
-    public LocalDateTime getTimeStamp() {
-        return timeStamp;
     }
 
     public List<Pizza> getPizzas() {
@@ -69,9 +75,11 @@ public class Order {
         for (Pizza p : pizzas) {
             pizzaProperties += p.getTitle() + "\t" + p.getPrice() + ",-" + "\n";
         }
+
         return pizzaProperties +
                 "Total price: " + getPrice() + ",-" + "\n" +
                 "Phone number: " + phoneNr + "\n" +
                 "Estimated delivery: " + timeStamp;
+
     }
 }
