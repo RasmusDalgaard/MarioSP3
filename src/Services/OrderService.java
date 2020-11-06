@@ -21,13 +21,19 @@ public class OrderService implements IOrderService {
     public void createOrder() {
         Order order = new Order();
         IMenu iMenu = new Menu();
+        int choice = 0;
+        int pizzaId = 0;
         List<Pizza> allPizzas = ps.getAllPizzas();
-        int pizzaId = iMenu.showOrderInstruction();
-        Pizza pizza = null;
-        pizza = allPizzas.get(pizzaId);
-        allPizzas.add(pizza);
-        orders.add(order);
-
+        while (pizzaId != 99) {
+            pizzaId = iMenu.addPizzaToOrder();
+            Pizza pizza = null;
+            pizza = allPizzas.get(pizzaId);
+            allPizzas.add(pizza);
+            orders.add(order);
+            if(pizzaId != 99) {
+                pizzaId = choice;
+            }
+        }
     }
 
 

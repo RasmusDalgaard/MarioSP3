@@ -14,11 +14,11 @@ public class Menu implements IMenu {
         System.out.println("9) Exit");
     }
 
-    public int showOrderInstruction() {
+    public int addPizzaToOrder() {
         int retVal = 0;
         System.out.println("\nEnter pizza ID");
         retVal = sc.nextInt();
+        System.out.println("99) Confirm order");
         return retVal;
     }
-
 }
