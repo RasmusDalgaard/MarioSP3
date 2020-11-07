@@ -13,13 +13,15 @@ import java.util.Scanner;
 
 public class OrderService implements IOrderService {
     List<Pizza> pizzas = new ArrayList<>();
-    Order order;
+    ArrayList<Order> orders = new ArrayList<>();
+
     Scanner sc = new Scanner(System.in);
     Menu menu = new Menu();
     IPizzaService ps = new PizzaService();
 
     public void createOrder() {
-        order = new Order();
+        Order order = new Order();
+        Pizza pizza = null;
         IMenu iMenu = new Menu();
         int pizzaId = 0;
         int phoneNr = 0;
@@ -29,15 +31,21 @@ public class OrderService implements IOrderService {
         while (pizzaId != 99) {
             pizzaId = iMenu.addPizzaToOrder();
             if (pizzaId != 99) {
-                Pizza pizza = null;
                 pizza = ps.getPizzaById(pizzaId);
                 order.getPizzas().add(pizza);
             }
         }
+        orders.add(order);
     }
 
     public void showActiveOrders() {
-        System.out.println(order);
+        for (Order o : orders) {
+            System.out.println(o);
+        }
+    }
+
+    public ArrayList<Order> getOrders() {
+        return orders;
     }
 
 }
