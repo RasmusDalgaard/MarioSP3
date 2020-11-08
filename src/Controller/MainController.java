@@ -40,16 +40,12 @@ public class MainController {
                     System.out.println("Order saved\n");
                     break;
                 case 9:
-                    exit();
+                    menu.exit();
                     break;
                 default:
-                    exit();
+                    menu.exit();
                     break;
             }
         }
-    }
-
-    public void exit() {
-        System.out.println("Exiting ..");
     }
 }

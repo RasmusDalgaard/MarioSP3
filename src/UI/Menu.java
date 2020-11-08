@@ -15,6 +15,10 @@ public class Menu implements IMenu {
         System.out.println("9) Exit");
     }
 
+    public void exit() {
+        System.out.println("Exiting ..");
+    }
+
     public int addPizzaToOrder() {
         int retVal = 0;
         System.out.println("\nEnter pizza ID (99 to exit)");
