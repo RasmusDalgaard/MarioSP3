@@ -28,7 +28,7 @@ public class Menu implements IMenu {
 
     public int addPhoneNrToOrder() {
         int phoneNr = 0;
-        System.out.println("Enter phoneNr: ");
+        System.out.println("Enter phone number: ");
         phoneNr = sc.nextInt();
         return phoneNr;
     }
