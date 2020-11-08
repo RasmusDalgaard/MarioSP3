@@ -44,6 +44,10 @@ public class OrderService implements IOrderService {
         }
     }
 
+    public void clearOrders() {
+        orders.clear();
+    }
+
     public ArrayList<Order> getOrders() {
         return orders;
     }

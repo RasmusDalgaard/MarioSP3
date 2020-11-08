@@ -16,17 +16,17 @@ public class Order {
     String dTimeStamp;
     String cTimeStamp;
     List<Pizza> pizzas;
-    String status;
     DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+    DateFormat dateFormat1 = new SimpleDateFormat("dd/MM/yyyy HH:mm ");
     Calendar cal = Calendar.getInstance();
+    Calendar cal1 = Calendar.getInstance();
 
 
     public Order() {
-        this.orderId = counter;
         this.dTimeStamp = dateFormat.format(getDeliveryTime());
-        this.dTimeStamp = dateFormat.format(getTime());
+        this.cTimeStamp = dateFormat1.format(getTime());
         this.pizzas = new ArrayList<>();
-        this.status = "Created";
+        this.orderId = counter;
         counter++;
     }
 
@@ -36,7 +36,11 @@ public class Order {
     }
 
     public Date getTime() {
-        return cal.getTime();
+        return cal1.getTime();
+    }
+
+    public String getCTimeStamp() {
+        return cTimeStamp;
     }
 
     public int getOrderId() {
@@ -51,16 +55,8 @@ public class Order {
         return pizzas;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
     public void setPhoneNr(int phoneNr) {
         this.phoneNr = phoneNr;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public void addPizza(Pizza pizza) {
@@ -94,8 +90,7 @@ public class Order {
         return pizzaProperties +
                 "Total price: " + getPrice() + ",-" + "\n" +
                 "Phone number: " + phoneNr + "\n" +
-                "Order received: " + getTime() + "\n" +
-                "Estimated delivery: " + dTimeStamp;
+                "Estimated ready: " + dTimeStamp;
 
     }
 }

@@ -1,10 +1,12 @@
 package Controller;
 
+import Domain.Order;
 import Domain.Pizza;
 import Services.*;
 import UI.Menu;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,7 +16,6 @@ public class MainController {
     IOrderService os = new OrderService();
     IOrdersFileService ofs = new OrdersFileService();
     Menu menu = new Menu();
-    List<Pizza> pizzas = new ArrayList<>();
     int choice = 0;
 
     public void runProgram() {
@@ -35,12 +36,20 @@ public class MainController {
                     break;
                 case 4:
                     ofs.writeToFile(os.getOrders());
-                    System.out.println("Order saved");
+                    os.clearOrders();
+                    System.out.println("Order saved\n");
+                    break;
+                case 9:
+                    exit();
                     break;
                 default:
-                    choice = 9;
+                    exit();
                     break;
             }
         }
+    }
+
+    public void exit() {
+        System.out.println("Exiting ..");
     }
 }
