@@ -12,6 +12,7 @@ public class Menu implements IMenu {
         System.out.println("2) Create order");
         System.out.println("3) Show active orders");
         System.out.println("4) Confirm order");
+        System.out.println("5) Show previous orders");
         System.out.println("9) Exit");
     }
 

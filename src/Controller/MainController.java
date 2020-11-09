@@ -15,6 +15,7 @@ public class MainController {
     IPizzaService ps = new PizzaService();
     IOrderService os = new OrderService();
     IOrdersFileService ofs = new OrdersFileService();
+    IStatisticsService ss = new StatisticsService();
     Menu menu = new Menu();
     int choice = 0;
 
@@ -38,6 +39,9 @@ public class MainController {
                     ofs.writeToFile(os.getOrders());
                     os.clearOrders();
                     menu.showConfirmOrderUI();
+                    break;
+                case 5:
+                    ss.showStatistics();
                     break;
                 case 9:
                     menu.exit();
