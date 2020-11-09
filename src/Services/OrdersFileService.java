@@ -16,7 +16,7 @@ public class OrdersFileService implements IOrdersFileService {
             FileWriter fw = new FileWriter(file, true);
             BufferedWriter bw = new BufferedWriter(fw);
             for (Order order : orders) {
-                String msg = String.format("%s, Order ID: %d, Phone: %d, Pizzas: %s, Total price: %d,-", order.getCTimeStamp(), order.getOrderId(), order.getPhoneNr(), order.getAllPizzaTitles(), order.getPrice());
+                String msg = String.format("%s;%s;%s;%s;%d", order.getCTimeStamp(), order.getOrderId(), order.getPhoneNr(), order.getAllPizzaTitles(), order.getPrice());
                 bw.write(msg);
                 bw.newLine();
             }

@@ -1,3 +1,1 @@
-09/11/2020 14:12 , Order ID: 0, Phone: 42454424, Pizzas: Vesuvio, Hawaii, , Total price: 118,-
-09/11/2020 14:12 , Order ID: 1, Phone: 77665544, Pizzas: Bertil, Silvia, Cacciatore, , Total price: 175,-
-09/11/2020 14:12 , Order ID: 2, Phone: 40104377, Pizzas: Bertil, , Total price: 57,-
+09/11/2020 22:12;4b580fe8-e5b9-4985-8794-3b062992c920;42444242;Hawaii;61

@@ -45,21 +45,21 @@ public class OrderService implements IOrderService {
                 e.printErrorMessage();
             }
         }
-            orders.add(order);
-        }
-
-        public void showActiveOrders () {
-            for (Order o : orders) {
-                System.out.println(o);
-            }
-        }
-
-        public void clearOrders () {
-            orders.clear();
-        }
-
-        public ArrayList<Order> getOrders () {
-            return orders;
-        }
-
+        orders.add(order);
     }
+
+    public void showActiveOrders() {
+        for (Order o : orders) {
+            System.out.println(o);
+        }
+    }
+
+    public void clearOrders() {
+        orders.clear();
+    }
+
+    public ArrayList<Order> getOrders() {
+        return orders;
+    }
+
+}

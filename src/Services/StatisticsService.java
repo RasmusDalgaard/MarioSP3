@@ -1,5 +1,6 @@
 package Services;
 
+import Domain.CompletedOrder;
 import Domain.Order;
 import Domain.Pizza;
 
@@ -8,22 +9,33 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+
 
 public class StatisticsService implements IStatisticsService {
     IPizzaService ps = new PizzaService();
-    List<Pizza> pizzas = ps.getAllPizzas();
+    HashMap<String, Integer> pizzaFrequency = new HashMap<String, Integer>();
 
-    public List<Order> getAllOrders() {
-        List<Order> completedOrders = new ArrayList<>();
+    public List<CompletedOrder> getAllOrders() {
+        List<CompletedOrder> completedOrders = new ArrayList<>();
         File file = new File("resources/orders.txt");
         try {
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             String line = "";
             while ((line = br.readLine()) != null) {
-                String[] lineArr = line.split(",", 4);
-                Order order = new Order();
+                String[] lineArr = line.split(";", 5);
+                String timestamp = lineArr[0];
+                String id = lineArr[1];
+                String phoneNr = lineArr[2];
+                String[] p = lineArr[3].split(",");
+                List<String> pizzas = new ArrayList<>();
+                pizzas = Arrays.asList(p);
+                String price = lineArr[4];
+
+                CompletedOrder order = new CompletedOrder(timestamp, id, phoneNr, pizzas, price);
                 completedOrders.add(order);
             }
         } catch (IOException e) {
@@ -32,11 +44,27 @@ public class StatisticsService implements IStatisticsService {
         return completedOrders;
     }
 
-    public String showStatistics() {
-        String pizzaStats = "";
-        for (Pizza p : pizzas) {
-            pizzaStats += p.getTitle() + "\t";
+    public void showStatistics() {
+        ArrayList<String> pizzaCount = new ArrayList<>();
+        List<CompletedOrder> completedOrders = getAllOrders();
+        for (CompletedOrder o : completedOrders) {
+            for (String p : o.getPizzas()) {
+                pizzaCount.add(p);
+            }
         }
-        return pizzaStats;
+        for (Pizza p : ps.getAllPizzas()) {
+            pizzaFrequency.put(p.getTitle(), getPizzaFrequency(p.getTitle(), pizzaCount));
+        }
     }
+
+    public int getPizzaFrequency(String target, ArrayList<String> pizzas) {
+        int counter = 0;
+        for (String p : pizzas) {
+            if (p.equals(target)) {
+                counter = counter + 1;
+            }
+        }
+        return counter;
+    }
+
 }

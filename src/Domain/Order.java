@@ -2,32 +2,28 @@ package Domain;
 
 import Domain.Pizza;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 public class Order {
-    static int counter = 0;
-    int orderId;
-    String phoneNr;
-    String dTimeStamp;
-    String cTimeStamp;
-    List<Pizza> pizzas;
-    DateFormat dateFormat = new SimpleDateFormat("HH:mm");
-    DateFormat dateFormat1 = new SimpleDateFormat("dd/MM/yyyy HH:mm ");
-    Calendar cal = Calendar.getInstance();
-    Calendar cal1 = Calendar.getInstance();
-
+    private static int counter = 0;
+    private String orderId;
+    private String phoneNr;
+    private String dTimeStamp;
+    private String cTimeStamp;
+    private List<Pizza> pizzas;
+    private DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+    private DateFormat dateFormat1 = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+    private Calendar cal = Calendar.getInstance();
+    private Calendar cal1 = Calendar.getInstance();
 
     public Order() {
+        UUID uuid = UUID.randomUUID();
         this.dTimeStamp = dateFormat.format(getDeliveryTime());
         this.cTimeStamp = dateFormat1.format(getTime());
         this.pizzas = new ArrayList<>();
-        this.orderId = counter;
-        counter++;
+        this.orderId = uuid.toString();
     }
 
     public Date getDeliveryTime() {
@@ -43,7 +39,7 @@ public class Order {
         return cTimeStamp;
     }
 
-    public int getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
 
@@ -74,10 +70,10 @@ public class Order {
     public String getAllPizzaTitles() {
         String allPizzaIds = "";
         for (Pizza p : pizzas) {
-            allPizzaIds += p.getTitle() + ", ";
+            allPizzaIds += p.getTitle() + ",";
         }
         int lastCommaIndex = allPizzaIds.lastIndexOf(",");
-        allPizzaIds = allPizzaIds.substring(0,lastCommaIndex);
+        allPizzaIds = allPizzaIds.substring(0, lastCommaIndex);
 
         return allPizzaIds;
     }
