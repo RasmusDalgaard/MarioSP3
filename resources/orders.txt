@@ -1,0 +1,6 @@
+09/11/2020 12:54 , Order ID: 0, Phone: 42454424, Pizzas: Vesuvio, Hawaii, , Total price: 118,-
+09/11/2020 12:54 , Order ID: 0, Phone: 23496581, Pizzas: Dennis, Silvia, , Total price: 124,-
+09/11/2020 12:55 , Order ID: 0, Phone: 40104377, Pizzas: Amerikaner, , Total price: 53,-
+09/11/2020 12:56 , Order ID: 1, Phone: 42454424, Pizzas: Amerikaner, Bertil, Silvia, , Total price: 171,-
+09/11/2020 12:56 , Order ID: 2, Phone: 77889966, Pizzas: Silvia, Toronfo, Capricciosa, , Total price: 183,-
+09/11/2020 12:59 , Order ID: 0, Phone: 42454424, Pizzas: Vesuvio, Hawaii, , Total price: 118,-

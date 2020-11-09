@@ -32,4 +32,12 @@ public class Menu implements IMenu {
         phoneNr = sc.nextInt();
         return phoneNr;
     }
+
+    public void showConfirmOrderUI() {
+        System.out.println("Order saved\n");
+    }
+
+    public void nextLine() {
+        System.out.println("\n");
+    }
 }
