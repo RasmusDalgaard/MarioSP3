@@ -1,6 +1,7 @@
 package Services;
 
 import Domain.Order;
+import Domain.Pizza;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,8 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StatisticsService implements IStatisticsService {
+    IPizzaService ps = new PizzaService();
+    List<Pizza> pizzas = ps.getAllPizzas();
 
-    public List getAllOrders() {
+    public List<Order> getAllOrders() {
         List<Order> completedOrders = new ArrayList<>();
         File file = new File("resources/orders.txt");
         try {
@@ -29,11 +32,11 @@ public class StatisticsService implements IStatisticsService {
         return completedOrders;
     }
 
-    public void showStatistics() {
-        for (Order o : getAllOrders()) {
-            System.out.println(o);
+    public String showStatistics() {
+        String pizzaStats = "";
+        for (Pizza p : pizzas) {
+            pizzaStats += p.getTitle() + "\t";
         }
+        return pizzaStats;
     }
-
-
 }
