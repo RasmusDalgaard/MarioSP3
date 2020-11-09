@@ -1,6 +1,7 @@
 package Services;
 
 import Domain.Pizza;
+import Exceptions.NoSuchPizzaException;
 import Services.IPizzaService;
 
 import java.io.BufferedReader;
@@ -35,7 +36,7 @@ public class PizzaService implements IPizzaService {
         }
     }
 
-    public Pizza getPizzaById(int id) {
+    public Pizza getPizzaById(int id) throws NoSuchPizzaException {
         for (Pizza p : getAllPizzas()) {
             if (p.getId() == id) {
                 return p;

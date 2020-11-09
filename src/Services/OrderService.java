@@ -2,6 +2,8 @@ package Services;
 
 import Domain.Order;
 import Domain.Pizza;
+import Exceptions.InvalidPhoneNumberException;
+import Exceptions.NoSuchPizzaException;
 import Services.IOrderService;
 import Services.IPizzaService;
 import UI.IMenu;
@@ -24,32 +26,40 @@ public class OrderService implements IOrderService {
         Pizza pizza = null;
         IMenu iMenu = new Menu();
         int pizzaId = 0;
-        int phoneNr = 0;
-        phoneNr = iMenu.addPhoneNrToOrder();
-        order.setPhoneNr(phoneNr);
+        String phoneNr = "";
+        try {
+            phoneNr = iMenu.addPhoneNrToOrder();
+            order.setPhoneNr(phoneNr);
+        } catch (InvalidPhoneNumberException e) {
+            e.printErrorMessage();
+        }
         List<Pizza> allPizzas = ps.getAllPizzas();
         while (pizzaId != 99) {
-            pizzaId = iMenu.addPizzaToOrder();
-            if (pizzaId != 99) {
-                pizza = ps.getPizzaById(pizzaId);
-                order.getPizzas().add(pizza);
+            try {
+                pizzaId = iMenu.addPizzaToOrder();
+                if (pizzaId != 99) {
+                    pizza = ps.getPizzaById(pizzaId);
+                    order.getPizzas().add(pizza);
+                }
+            } catch (NoSuchPizzaException e) {
+                e.printErrorMessage();
             }
         }
-        orders.add(order);
-    }
-
-    public void showActiveOrders() {
-        for (Order o : orders) {
-            System.out.println(o);
+            orders.add(order);
         }
-    }
 
-    public void clearOrders() {
-        orders.clear();
-    }
+        public void showActiveOrders () {
+            for (Order o : orders) {
+                System.out.println(o);
+            }
+        }
 
-    public ArrayList<Order> getOrders() {
-        return orders;
-    }
+        public void clearOrders () {
+            orders.clear();
+        }
 
-}
+        public ArrayList<Order> getOrders () {
+            return orders;
+        }
+
+    }

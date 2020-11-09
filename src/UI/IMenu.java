@@ -1,5 +1,8 @@
 package UI;
 
+import Exceptions.InvalidPhoneNumberException;
+import Exceptions.NoSuchPizzaException;
+
 public interface IMenu {
     public void showMainMenu();
 
@@ -9,7 +12,7 @@ public interface IMenu {
 
     public void exit();
 
-    public int addPizzaToOrder();
+    public int addPizzaToOrder() throws NoSuchPizzaException;
 
-    public int addPhoneNrToOrder();
+    public String addPhoneNrToOrder() throws InvalidPhoneNumberException;
 }

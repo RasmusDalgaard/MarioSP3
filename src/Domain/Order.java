@@ -12,7 +12,7 @@ import java.util.Calendar;
 public class Order {
     static int counter = 0;
     int orderId;
-    int phoneNr;
+    String phoneNr;
     String dTimeStamp;
     String cTimeStamp;
     List<Pizza> pizzas;
@@ -47,7 +47,7 @@ public class Order {
         return orderId;
     }
 
-    public int getPhoneNr() {
+    public String getPhoneNr() {
         return phoneNr;
     }
 
@@ -55,7 +55,7 @@ public class Order {
         return pizzas;
     }
 
-    public void setPhoneNr(int phoneNr) {
+    public void setPhoneNr(String phoneNr) {
         this.phoneNr = phoneNr;
     }
 

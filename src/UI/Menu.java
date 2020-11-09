@@ -1,5 +1,7 @@
 package UI;
 
+import Exceptions.InvalidPhoneNumberException;
+import Exceptions.NoSuchPizzaException;
 import UI.IMenu;
 
 import java.util.Scanner;
@@ -20,18 +22,24 @@ public class Menu implements IMenu {
         System.out.println("Exiting ..");
     }
 
-    public int addPizzaToOrder() {
+    public int addPizzaToOrder() throws NoSuchPizzaException{
         int retVal = 0;
         System.out.println("\nEnter pizza ID (99 to exit)");
         retVal = sc.nextInt();
+        if (retVal>11 && retVal != 99) {
+            throw new NoSuchPizzaException();
+        }
         return retVal;
     }
 
-    public int addPhoneNrToOrder() {
-        int phoneNr = 0;
+    public String addPhoneNrToOrder() throws InvalidPhoneNumberException {
+        String phoneNr = "";
         System.out.println("Enter phone number: ");
-        phoneNr = sc.nextInt();
-        return phoneNr;
+        phoneNr = sc.nextLine();
+        if (phoneNr.length() != 8) {
+            throw new InvalidPhoneNumberException();
+        }
+            return phoneNr;
     }
 
     public void showConfirmOrderUI() {
