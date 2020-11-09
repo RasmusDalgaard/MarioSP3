@@ -76,6 +76,8 @@ public class Order {
         for (Pizza p : pizzas) {
             allPizzaIds += p.getTitle() + ", ";
         }
+        int lastCommaIndex = allPizzaIds.lastIndexOf(",");
+        allPizzaIds = allPizzaIds.substring(0,lastCommaIndex);
 
         return allPizzaIds;
     }
