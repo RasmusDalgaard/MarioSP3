@@ -15,6 +15,7 @@ public class MainController {
     IPizzaService ps = new PizzaService();
     IOrderService os = new OrderService();
     IOrdersFileService ofs = new OrdersFileService();
+    IStatisticsService ss = new StatisticsService();
     Menu menu = new Menu();
     int choice = 0;
 
@@ -25,19 +26,22 @@ public class MainController {
             switch (choice) {
                 case 1:
                     ps.showPizzaMenu();
-                    System.out.println("\n");
+                    menu.nextLine();
                     break;
                 case 2:
                     os.createOrder();
                     break;
                 case 3:
                     os.showActiveOrders();
-                    System.out.println("\n");
+                    menu.nextLine();
                     break;
                 case 4:
                     ofs.writeToFile(os.getOrders());
                     os.clearOrders();
-                    System.out.println("Order saved\n");
+                    menu.showConfirmOrderUI();
+                    break;
+                case 5:
+                    ss.showStatistics();
                     break;
                 case 9:
                     menu.exit();
