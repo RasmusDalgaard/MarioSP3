@@ -27,11 +27,13 @@ public class OrderService implements IOrderService {
         IMenu iMenu = new Menu();
         int pizzaId = 0;
         String phoneNr = "";
-        try {
-            phoneNr = iMenu.addPhoneNrToOrder();
-            order.setPhoneNr(phoneNr);
-        } catch (InvalidPhoneNumberException e) {
-            e.printErrorMessage();
+        while (phoneNr.length() != 8) {
+            try {
+                phoneNr = iMenu.addPhoneNrToOrder();
+                order.setPhoneNr(phoneNr);
+            } catch (InvalidPhoneNumberException e) {
+                e.printErrorMessage();
+            }
         }
         List<Pizza> allPizzas = ps.getAllPizzas();
         while (pizzaId != 99) {
