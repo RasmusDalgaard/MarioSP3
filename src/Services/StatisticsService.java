@@ -54,7 +54,17 @@ public class StatisticsService implements IStatisticsService {
         }
         for (Pizza p : ps.getAllPizzas()) {
             pizzaFrequency.put(p.getTitle(), getPizzaFrequency(p.getTitle(), pizzaCount));
+            System.out.println(p.getTitle() + ": " + getPizzaFrequency(p.getTitle(), pizzaCount));
         }
+        System.out.println("\nTotal earned: " + getTurnover() + ",-");
+    }
+
+    public int getTurnover() {
+        int price = 0;
+        for (CompletedOrder o : getAllOrders()) {
+            price += o.getPrice();
+        }
+        return price;
     }
 
     public int getPizzaFrequency(String target, ArrayList<String> pizzas) {

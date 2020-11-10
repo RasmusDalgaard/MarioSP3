@@ -8,7 +8,7 @@ public interface IMenu {
 
     public void showConfirmOrderUI();
 
-    public void nextLine();
+    public void newLine();
 
     public void exit();
 

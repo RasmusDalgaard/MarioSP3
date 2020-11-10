@@ -1,5 +1,10 @@
 package Domain;
 
+import Services.IPizzaService;
+import Services.IStatisticsService;
+import Services.PizzaService;
+import Services.StatisticsService;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +14,8 @@ public class CompletedOrder {
     private String phoneNr;
     private List<String> pizzas;
     private int price;
+    IPizzaService ps = new PizzaService();
+    IStatisticsService ss = new StatisticsService();
 
     public CompletedOrder(String timestamp, String id, String phoneNr, List<String> pizzas, String price) {
         this.timestamp = timestamp;
@@ -48,5 +55,13 @@ public class CompletedOrder {
 
     public void setPizzas(ArrayList<String> pizzas) {
         this.pizzas = pizzas;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

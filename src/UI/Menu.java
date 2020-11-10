@@ -46,7 +46,7 @@ public class Menu implements IMenu {
         System.out.println("Order saved\n");
     }
 
-    public void nextLine() {
+    public void newLine() {
         System.out.println("\n");
     }
 }

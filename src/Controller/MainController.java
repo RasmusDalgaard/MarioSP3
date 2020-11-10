@@ -26,14 +26,14 @@ public class MainController {
             switch (choice) {
                 case 1:
                     ps.showPizzaMenu();
-                    menu.nextLine();
+                    menu.newLine();
                     break;
                 case 2:
                     os.createOrder();
                     break;
                 case 3:
                     os.showActiveOrders();
-                    menu.nextLine();
+                    menu.newLine();
                     break;
                 case 4:
                     ofs.writeToFile(os.getOrders());
@@ -42,6 +42,7 @@ public class MainController {
                     break;
                 case 5:
                     ss.showStatistics();
+                    menu.newLine();
                     break;
                 case 9:
                     menu.exit();
