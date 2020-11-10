@@ -1,7 +1,6 @@
 package Services;
 
 import Domain.CompletedOrder;
-import Domain.Order;
 import Domain.Pizza;
 
 import java.io.BufferedReader;
