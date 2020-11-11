@@ -1,7 +1,7 @@
 package Domain;
 
 public class Pizza {
-    int id;
+    private int id;
     private int price;
     private String title;
     private String topping;

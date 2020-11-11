@@ -4,8 +4,6 @@ import Domain.Order;
 import Domain.Pizza;
 import Exceptions.InvalidPhoneNumberException;
 import Exceptions.NoSuchPizzaException;
-import Services.IOrderService;
-import Services.IPizzaService;
 import UI.IMenu;
 import UI.Menu;
 

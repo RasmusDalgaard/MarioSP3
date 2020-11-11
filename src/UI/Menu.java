@@ -1,12 +1,16 @@
 package UI;
 
+import Domain.Pizza;
 import Exceptions.InvalidPhoneNumberException;
 import Exceptions.NoSuchPizzaException;
+import Services.IPizzaService;
+import Services.PizzaService;
 import UI.IMenu;
 
 import java.util.Scanner;
 
 public class Menu implements IMenu {
+    IPizzaService ps = new PizzaService();
     Scanner sc = new Scanner(System.in);
 
     public void showMainMenu() {
@@ -24,9 +28,10 @@ public class Menu implements IMenu {
 
     public int addPizzaToOrder() throws NoSuchPizzaException{
         int retVal = 0;
+        int size = ps.getAllPizzas().size();
         System.out.println("\nEnter pizza ID (99 to exit)");
         retVal = sc.nextInt();
-        if (retVal>11 && retVal != 99) {
+        if (retVal>size && retVal != 99) {
             throw new NoSuchPizzaException();
         }
         return retVal;

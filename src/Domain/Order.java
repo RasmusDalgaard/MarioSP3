@@ -7,16 +7,15 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class Order {
-    private static int counter = 0;
     private String orderId;
     private String phoneNr;
     private String dTimeStamp;
     private String cTimeStamp;
     private List<Pizza> pizzas;
-    private DateFormat dateFormat = new SimpleDateFormat("HH:mm");
-    private DateFormat dateFormat1 = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-    private Calendar cal = Calendar.getInstance();
-    private Calendar cal1 = Calendar.getInstance();
+    DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+    DateFormat dateFormat1 = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+    Calendar cal = Calendar.getInstance();
+    Calendar cal1 = Calendar.getInstance();
 
     public Order() {
         UUID uuid = UUID.randomUUID();
